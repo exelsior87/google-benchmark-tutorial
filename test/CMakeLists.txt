@@ -1,0 +1,18 @@
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED YES)
+set(CMAKE_CXX_EXTENSIONS NO)
+
+set(CMAKE_BUILD_TYPE Debug)
+
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
+
+# SET(BINARY ${CMAKE_PROJECT_NAME}_test)
+# SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR})
+
+file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false *.h *.cpp)
+set(SOURCES ${TEST_SOURCES})
+
+add_executable(myfoo_test myfoo_test.cpp)
+add_test(NAME myfoo_test COMMAND myfoo_test)
+target_link_libraries(myfoo_test PUBLIC gtest myfoo)

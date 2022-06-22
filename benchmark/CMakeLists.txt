@@ -1,16 +1,3 @@
-# enable_testing()
-# set(BENCHMARK_DOWNLOAD_DEPENDENCIES "on")
-
-# file(GLOB_RECURSE SRC_FILES CONFIGURE_DEFENDS
-#     ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
-# )
-
-# foreach(SRC ${SRC_FILES})
-#     add_executable(bm-${SRC} ${SRC})
-#     target_link_libraries(bm-${SRC} PRIVATE benchmark::benchmark)
-# endforeach()
-
-
 enable_testing()
 
 include(FetchContent)
@@ -21,7 +8,8 @@ set(CMAKE_CXX_EXTENSIONS NO)
 
 set(CMAKE_BUILD_TYPE Debug)
 
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MDd")
+# set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MDd")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
 
 FetchContent_Declare(
